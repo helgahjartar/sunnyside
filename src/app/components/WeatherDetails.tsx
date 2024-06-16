@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Humidity from '../../../public/static/icons/Humidity';
 import Temperature from '../../../public/static/icons/Temperature';
-import { ICON_BASE_URL, Weather } from '../api/constants';
 import Icon from './Icon';
-import Image from 'next/image';
+import { Weather } from '../utils/types';
+import { ICON_BASE_URL } from '../utils/constants';
 
 const WeatherDetails = ({ weather }: { weather: Weather }) => {
    return (

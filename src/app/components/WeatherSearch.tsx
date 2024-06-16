@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useWeather } from '../contexts/WeatherContext';
-import axios, { Axios, AxiosError } from 'axios';
-import { API_KEY, BASE_URL, DEFAULT_CITY, ForecastType, Weather } from '../api/constants';
+import { BASE_URL, DEFAULT_CITY } from '../utils/constants';
+import { ForecastType, Weather } from '../utils/types';
 
 const ForecastSearch = () => {
    const { setTodaysWeather, forecastType, setWeatherForecast } = useWeather();

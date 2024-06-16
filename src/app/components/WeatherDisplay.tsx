@@ -1,12 +1,11 @@
 'use client';
 
 import { useWeather } from '../contexts/WeatherContext';
-import { ForecastType } from '../api/constants';
+import { ForecastType } from '../utils/types';
 import WeatherDetails from './WeatherDetails';
 
 const ForecastDisplay = () => {
-   const { todaysWeather, forecastType, setForecastType, weatherForecast, selectedCity } =
-      useWeather();
+   const { todaysWeather, forecastType, setForecastType, weatherForecast } = useWeather();
 
    // Handler for forecast type toggling
    const toggleForecastType = () => {

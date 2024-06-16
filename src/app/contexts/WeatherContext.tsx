@@ -1,7 +1,7 @@
 'use client';
 
-import { useContext, ReactNode, Provider, createContext, useState } from 'react';
-import { ForecastType, Weather } from '../api/constants';
+import { useContext, ReactNode, createContext, useState } from 'react';
+import { ForecastType, Weather } from '../utils/types';
 
 const WeatherContext = createContext<{
    forecastType: string;
