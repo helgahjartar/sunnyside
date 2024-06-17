@@ -1,7 +1,8 @@
 'use client';
 
 import { useContext, ReactNode, createContext, useState } from 'react';
-import { ForecastType, Weather } from '../utils/types';
+import { ForecastType, Location, Weather } from '../utils/types';
+import { DEFAULT_CITY } from '../utils/constants';
 
 const WeatherContext = createContext<{
    forecastType: string;
@@ -10,6 +11,8 @@ const WeatherContext = createContext<{
    setTodaysWeather: (weather: Weather) => void;
    weatherForecast: Weather[] | undefined;
    setWeatherForecast: (forecast: Weather[]) => void;
+   selectedLocation: Location | undefined;
+   setSelectedLocation: (location: Location) => void;
 }>({
    forecastType: '',
    setForecastType: () => {},
@@ -17,12 +20,18 @@ const WeatherContext = createContext<{
    setTodaysWeather: () => {},
    weatherForecast: [],
    setWeatherForecast: () => {},
+   selectedLocation: {
+      city: DEFAULT_CITY,
+      country: 'IS',
+   },
+   setSelectedLocation: () => {},
 });
 
 export const WeatherProvider = ({ children }: { children: ReactNode }) => {
    const [todaysWeather, setTodaysWeather] = useState<Weather>();
    const [forecastType, setForecastType] = useState(ForecastType.OneDay);
    const [weatherForecast, setWeatherForecast] = useState<Weather[]>();
+   const [selectedLocation, setSelectedLocation] = useState<Location>();
 
    return (
       <WeatherContext.Provider
@@ -33,6 +42,8 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
             setTodaysWeather,
             weatherForecast,
             setWeatherForecast,
+            selectedLocation,
+            setSelectedLocation,
          }}
       >
          {children}

@@ -5,7 +5,8 @@ import { ForecastType } from '../utils/types';
 import WeatherDetails from './WeatherDetails';
 
 const ForecastDisplay = () => {
-   const { todaysWeather, forecastType, setForecastType, weatherForecast } = useWeather();
+   const { todaysWeather, forecastType, setForecastType, weatherForecast, selectedLocation } =
+      useWeather();
 
    // Handler for forecast type toggling
    const toggleForecastType = () => {
@@ -25,9 +26,9 @@ const ForecastDisplay = () => {
       <div>
          <div className="flex flex-row justify-between items-center">
             <div className="h-12 text-black text-3xl font-bold w-full truncate py-2 px-4 capitalize">
-               {todaysWeather && (
+               {selectedLocation && (
                   <>
-                     {todaysWeather?.city}, {todaysWeather?.country}
+                     {selectedLocation.city}, {selectedLocation.country}
                   </>
                )}
             </div>

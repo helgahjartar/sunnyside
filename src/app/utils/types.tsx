@@ -9,6 +9,11 @@ export interface Weather {
    humidity: string;
 }
 
+export interface Location {
+   city: string;
+   country: string;
+}
+
 export const ForecastType = {
    OneDay: 'weather',
    FiveDay: 'forecast',
