@@ -2,7 +2,7 @@
 
 import { useContext, ReactNode, createContext, useState } from 'react';
 import { ForecastType, Location, Weather } from '../utils/types';
-import { DEFAULT_CITY } from '../utils/constants';
+import { DEFAULT_CITY, DEFAULT_COUNTRY } from '../utils/constants';
 
 const WeatherContext = createContext<{
    forecastType: string;
@@ -22,7 +22,7 @@ const WeatherContext = createContext<{
    setWeatherForecast: () => {},
    selectedLocation: {
       city: DEFAULT_CITY,
-      country: 'IS',
+      country: DEFAULT_COUNTRY,
    },
    setSelectedLocation: () => {},
 });

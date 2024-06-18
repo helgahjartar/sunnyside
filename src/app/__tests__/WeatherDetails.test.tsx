@@ -4,7 +4,7 @@ import WeatherDetails from '../components/WeatherDetails';
 import { Weather } from '../utils/types';
 
 describe('WeatherDetails', () => {
-   test('renders correctly based on Weather passed down', () => {
+   test('matches snapshot based on weather passed down', () => {
       const mockWeather: Weather = {
          id: '1',
          icon: 'mockUrl',
@@ -16,8 +16,6 @@ describe('WeatherDetails', () => {
 
       render(<WeatherDetails weather={mockWeather} />);
 
-      expect(screen.getByTestId('day')).toMatchSnapshot(
-         '<div class="text-xl font-bold text-black underline" data-testid="day">Sunday</div>'
-      );
+      expect(screen.getByTestId('weather-details')).toMatchSnapshot();
    });
 });
