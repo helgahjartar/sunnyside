@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherDetails renders correctly based on Weather passed down: <div class="text-xl font-bold text-black underline" data-testid="day">Sunday</div> 1`] = `
+<div
+  class="text-xl font-bold text-black underline"
+  data-testid="day"
+>
+  Sunday
+</div>
+`;

@@ -28,8 +28,6 @@ export const useGetForecast = () => {
                   day: 'Current Weather',
                   main: result.data.weather[0].main,
                   temp: result.data.main.temp,
-                  city: result.data.name,
-                  country: result.data.sys.country,
                   humidity: result.data.main.humidity,
                });
             } else {
@@ -55,8 +53,6 @@ export const useGetForecast = () => {
                         : new Date(item.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' }),
                   main: item.weather[0].main,
                   temp: item.main.temp,
-                  city: item.name,
-                  country: item.sys.country,
                   humidity: item.main.humidity,
                }));
 

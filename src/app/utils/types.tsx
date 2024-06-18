@@ -4,8 +4,6 @@ export interface Weather {
    day: string;
    main: string;
    temp: string;
-   city: string;
-   country: string;
    humidity: string;
 }
 

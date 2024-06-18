@@ -8,7 +8,9 @@ import { ICON_BASE_URL } from '../utils/constants';
 const WeatherDetails = ({ weather }: { weather: Weather }) => {
    return (
       <>
-         <div className="text-xl font-bold text-black underline">{weather.day}</div>
+         <div data-testid="day" className="text-xl font-bold text-black underline">
+            {weather.day}
+         </div>
          <div className="flex flex-row space-x-1 items-center">
             <Icon>
                <Image
