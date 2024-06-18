@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Humidity from '../../../public/static/icons/Humidity';
 import Temperature from '../../../public/static/icons/Temperature';
-import Icon from './Icon';
+import Icon from './WeatherIcon';
 import { Weather } from '../utils/types';
 import { ICON_BASE_URL } from '../utils/constants';
 
