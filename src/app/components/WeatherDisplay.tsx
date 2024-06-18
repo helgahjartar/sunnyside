@@ -4,7 +4,7 @@ import { useWeather } from '../contexts/WeatherContext';
 import { ForecastType } from '../utils/types';
 import WeatherDetails from './WeatherDetails';
 
-const ForecastDisplay = () => {
+const WeatherDisplay = () => {
    const { todaysWeather, forecastType, setForecastType, weatherForecast, selectedLocation } =
       useWeather();
 
@@ -23,7 +23,7 @@ const ForecastDisplay = () => {
    );
 
    return (
-      <div>
+      <div data-testid="weather-display">
          <div className="flex flex-row justify-between items-center">
             <div className="h-12 text-black text-3xl font-bold w-full truncate py-2 px-4 capitalize">
                {selectedLocation && (
@@ -70,4 +70,4 @@ const ForecastDisplay = () => {
    );
 };
 
-export default ForecastDisplay;
+export default WeatherDisplay;

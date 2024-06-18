@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherDisplay matches snapshot when in loading state 1`] = `
+<div
+  data-testid="weather-display"
+>
+  <div
+    class="flex flex-row justify-between items-center"
+  >
+    <div
+      class="h-12 text-black text-3xl font-bold w-full truncate py-2 px-4 capitalize"
+    >
+      Reykjavík
+      , 
+      IS
+    </div>
+    <div
+      class="flex align-middle"
+    >
+      <button
+        class="min-h-10 bg-orange-300 hover:bg-orange-500 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        data-testid="toggle-button"
+      >
+        See Current Weather
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex justify-between overflow-scroll mt-4 bg-[#F5ECDA] rounded-lg py-8 px-10 space-x-10 w-full min-w-72"
+  >
+    <div
+      class="text-2xl font-semibold text-black"
+    >
+      Loading..
+    </div>
+  </div>
+</div>
+`;
