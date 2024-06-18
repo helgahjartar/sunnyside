@@ -33,7 +33,7 @@ const ForecastSearch = () => {
       };
    }, [city]);
 
-   // Clear error when
+   // Clear error when user clears input
    useEffect(() => {
       if (city.length === 0 && searchError) {
          setSearchError(false);

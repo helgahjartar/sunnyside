@@ -8,11 +8,9 @@ export default function Home() {
          <div className="flex flex-col w-full">
             <Header />
             <div className="mt-10">
-               <ForecastSearch></ForecastSearch>
+               <ForecastSearch />
             </div>
-            <div className="">
-               <ForecastDisplay></ForecastDisplay>
-            </div>
+            <ForecastDisplay />
          </div>
       </main>
    );
