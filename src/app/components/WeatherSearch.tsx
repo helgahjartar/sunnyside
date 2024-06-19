@@ -33,6 +33,13 @@ const ForecastSearch = () => {
       };
    }, [city]);
 
+   // Clear error when user clears input
+   useEffect(() => {
+      if (city.length === 0 && searchError) {
+         setSearchError('');
+      }
+   }, [city, searchError]);
+
    // Set user's search input in the state to trigger fetch from API
    const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setCity(e.target.value);
