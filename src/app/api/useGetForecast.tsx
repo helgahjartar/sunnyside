@@ -13,6 +13,8 @@ export const useGetForecast = () => {
 
    // Get forecast via API call, based on user's (or default) input
    const getForecast = async () => {
+      if (!city) return;
+
       try {
          const result = await axios.get(urlToSearchFor);
          if (result) {
