@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useWeather } from '../contexts/WeatherContext';
-import { API_KEY, BASE_URL } from '../utils/constants';
+import { API_KEY, BASE_URL, CITY_NOT_FOUND } from '../utils/constants';
 import { useGetForecast } from '../api/useGetForecast';
 
 const ForecastSearch = () => {
@@ -10,17 +10,17 @@ const ForecastSearch = () => {
    const { forecastType } = useWeather();
    const { getForecast, searchError, setSearchError, city, setCity } = useGetForecast();
 
-   // Fetch forecast upon entering page initially
+   // Fetch forecast upon entering page initially and if forecastType changes
    useEffect(() => {
-      const fetchInitialData = async () => {
+      const fetchForecastData = async () => {
          await getForecast();
-         setInitialForecastLoaded(true);
+         !initialForecastLoaded && setInitialForecastLoaded(true);
       };
 
-      fetchInitialData();
+      fetchForecastData();
    }, [forecastType]);
 
-   // Fetch forecast based on user's input
+   // Fetch forecast based on user's input with 300 millisec debounce
    useEffect(() => {
       if (!initialForecastLoaded) return;
 
@@ -33,13 +33,6 @@ const ForecastSearch = () => {
       };
    }, [city]);
 
-   // Clear error when user clears input
-   useEffect(() => {
-      if (city.length === 0 && searchError) {
-         setSearchError(false);
-      }
-   }, [city, searchError]);
-
    // Set user's search input in the state to trigger fetch from API
    const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setCity(e.target.value);
@@ -50,12 +43,10 @@ const ForecastSearch = () => {
          <input
             onChange={handleSearchInput}
             placeholder="Look up your favorite city"
-            onKeyDown={() => setSearchError(false)}
+            onKeyDown={() => setSearchError('')}
             className="border-r-2 rounded-lg h-10 w-full p-4 focus:outline-none"
          />
-         {searchError && (
-            <p className="mt-1 text-sm pl-4">There is no city by that name, please try again</p>
-         )}
+         {searchError && <p className="mt-1 text-sm pl-4">{searchError}</p>}
       </div>
    );
 };
